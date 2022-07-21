@@ -17,7 +17,7 @@ const users = [
       firstName: "Manager1",
       lastName: "manajerpoor",
       email: "Manager@gmail.com",
-      phone: 0049156789965,
+      phone: 156789965,
       birthdate: 07 - 11 - 1991,
       nationality: "Irish",
       idCardExpiryDate: 08 - 08 - 2024,
