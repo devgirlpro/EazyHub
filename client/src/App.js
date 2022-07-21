@@ -12,6 +12,7 @@ import MapsPage from "./pages/MapsPage";
 import TimeManagementpage from "./pages/TimeManagmentPage";
 import StartShiftPage from "./pages/StartShiftPage";
 //try to change some thing
+//some changes
 import "./App.css";
 
 function App() {
