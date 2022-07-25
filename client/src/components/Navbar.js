@@ -4,7 +4,7 @@ import "./navbar.css";
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="Navbar">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? "selected" : "")}
