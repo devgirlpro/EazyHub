@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../context/auth'
 import axios from 'axios'
+import { AuthContext } from '../context/auth'
 
 export default function Login() {
 
@@ -23,7 +23,7 @@ export default function Login() {
 				storeToken(token)
 				verifyStoredToken()
 					.then(() => {
-						navigate('/Dashboard')
+						navigate('/')
 					})
 			})
 			.catch(err => {
@@ -31,12 +31,12 @@ export default function Login() {
 				setErrorMessage(errorDescription)
 			})
 	}
-//
+
 	const handleUsername = e => setUsername(e.target.value)
 	const handlePassword = e => setPassword(e.target.value)
 
 	return (
-		<div>
+		<>
 			<h1>Login</h1>
 			<form onSubmit={handleSubmit}>
 
@@ -53,6 +53,6 @@ export default function Login() {
 
 			<h3>Don't have an account?</h3>
 			<Link to='/signup'>Signup</Link>
-		</div>
+		</>
 	)
 }

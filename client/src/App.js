@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
-import { Link } from "react-router";
+// import { Link } from "react-router";
 
 import {
   HomePage,
@@ -7,7 +7,7 @@ import {
   ContactPage,
   LoginPage,
   ManagerPage,
-  TimeManagementPage,
+  // TimeManagementPage, 
   DashboardPage,
   EmployeesPage,
   VehiclesPage,
@@ -15,6 +15,7 @@ import {
   TimeManagmentPage,
   StartShiftPage,
   EmployeeDetailsPage,
+  SignupPage
 } from "./pages/index";
 
 import { Navbar, Navbar2, Sidebar, Footer, Welcome } from "./components/index";
@@ -64,8 +65,17 @@ function App() {
       <Routes>
         <Route path="/startshift" element={<StartShiftPage />} />
       </Routes>
+      <Routes>
+        <Route path="/signup" element={<SignupPage />} />
+      </Routes>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
       <Footer />
     </div>
+
+
+
   );
 }
 
