@@ -11,8 +11,10 @@ import VehiclesPage from "./pages/VehiclesPage";
 import MapsPage from "./pages/MapsPage";
 import TimeManagementpage from "./pages/TimeManagmentPage";
 import StartShiftPage from "./pages/StartShiftPage";
+import SignupPage from "./pages/SignupPage";
 //try to change some thing
 import "./App.css";
+
 
 function App() {
   return (
@@ -20,9 +22,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-      </Routes>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Routes>
         <Route path="/about" element={<AboutPage />} />
@@ -48,8 +47,16 @@ function App() {
       <Routes>
         <Route path="/startshift" element={<StartShiftPage />} />
       </Routes>
-      v
+      <Routes>
+        <Route path="/signup" element={<SignupPage />} />
+      </Routes>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
     </div>
+
+
+
   );
 }
 
