@@ -11,3 +11,4 @@ export { default as TimeManagmentPage } from "./TimeManagmentPage";
 export { default as StartShiftPage } from "./StartShiftPage";
 export { default as EmployeeDetailsPage } from "./EmployeeDetailsPage";
 export { default as Signup } from "./SignupPage";
+export { default as VehicleDetailsPage } from "./VehicleDetailsPage";

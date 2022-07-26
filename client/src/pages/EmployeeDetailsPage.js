@@ -11,7 +11,10 @@ export default function EmployeeDetailsPage() {
     axios
       .get(`/api/employees/${id}`)
       .then((response) => {
-        console.log("employee Details => ", response.data);
+        console.log(
+          "employee Details from employeeDetailsPage AXIOS => ",
+          response.data
+        );
         setEmployee(response.data);
       })
       .catch((err) => console.log(err));
@@ -26,7 +29,7 @@ export default function EmployeeDetailsPage() {
       ) : (
         <>
           <h1>EmployeeDetails</h1>
-          <h3>Employee : {employee.personalInfo.nationality}</h3>
+          <h3>Nationality : {employee.personalInfo.nationality}</h3>
           <h4>Role: {employee.role}</h4>
           <h5>Bank: {employee.personalInfo.bank}</h5>
           {/* <Link to={`/`}>

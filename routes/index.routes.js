@@ -3,6 +3,22 @@ const { response } = require("express");
 const User = require("../models/User");
 const Vehicle = require("../models/Vehicle");
 
+//get all the employees
+router.get("/employees", (req, res) => {
+  User.find().then((response) => {
+    console.log("SERVER EMPLOYEES RESPOMSE=>", response);
+    res.json(response);
+  });
+});
+
+//get all the vehhicles
+router.get("/vehicles", (req, res) => {
+  Vehicle.find().then((response) => {
+    console.log("SERVER VEHICLES RESPONSE =>", response);
+    res.json(response);
+  });
+});
+
 router.get("/employees/:id", (req, res) => {
   User.findById(req.params.id)
     .then((response) => {
@@ -11,20 +27,21 @@ router.get("/employees/:id", (req, res) => {
     .catch((err) => next(err));
 });
 
-router.get("/employees", (req, res) => {
-  User.find().then((response) => {
-    console.log("server response=>", response);
-    res.json(response);
-  });
-});
-
-router.get("/:id", (req, res, next) => {
-  Project.findById(req.params.id)
-    .then((project) => {
-      res.status(200).json(project);
+router.get("/vehicles/:id", (req, res) => {
+  Vehicle.findById(req.params.id)
+    .then((response) => {
+      res.status(200).json(response);
     })
     .catch((err) => next(err));
 });
+
+// router.get("/:id", (req, res, next) => {
+//   Project.findById(req.params.id)
+//     .then((project) => {
+//       res.status(200).json(project);
+//     })
+//     .catch((err) => next(err));
+// });
 
 /* GET employee page */
 //access to the user from db

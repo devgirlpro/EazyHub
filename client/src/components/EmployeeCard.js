@@ -16,6 +16,8 @@ export default function EmployeeCard(props) {
           {employee.address?.street} {employee.address?.postCode}{" "}
           {employee.address?.city}
         </p>
+        <p>PersonalNumber: {employee.personalNumber}</p>
+        <p>Availability: {employee.available ? " Available" : "unAvailable"}</p>
       </div>
     </>
   );
