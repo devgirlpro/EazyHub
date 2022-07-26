@@ -35,9 +35,16 @@ const userSchema = new Schema(
       city: String,
     },
     file: String,
-    loginInfo: {
-      username: String,
-      password: String,
+    username: {
+      type: String,
+      unique: true
+    },
+    password: {
+      type: String,
+    },
+    posts: {
+      type: Schema.Types.ObjectId,
+      ref: "Post"
     },
     vehicle: {
       type: Schema.Types.ObjectId,

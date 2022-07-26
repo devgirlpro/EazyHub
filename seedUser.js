@@ -4,7 +4,7 @@ const Vehicle = require("./models/Vehicle");
 const mongoose = require("mongoose");
 // mongoose.connect('mongodb://localhost/library')
 mongoose.connect(
-  "mongodb+srv://admin:GingerMonster-22@eazycluster.villekn.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://admin:GingerMonster-22@eazycluster.villekn.mongodb.net/?"
 );
 
 const users = [
@@ -37,10 +37,14 @@ const users = [
       city: "Berlin",
     },
     file: "select some file",
-    loginInfo: {
-      username: "Tchall",
-      password: "123123",
+    username: {
+      username: MAGA,
+      unique: true
     },
+    password: {
+      pw: 123123,
+    },
+
   },
 ];
 
