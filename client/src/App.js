@@ -22,35 +22,15 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-      </Routes>
-      <Routes>
         <Route path="/about" element={<AboutPage />} />
-      </Routes>
-      <Routes>
         <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-      <Routes>
         <Route path="/dashboard" element={<DashboardPage />} />
-      </Routes>
-      <Routes>
         <Route path="/employees" element={<Employeespage />} />
-      </Routes>
-      <Routes>
         <Route path="/vehicles" element={<VehiclesPage />} />
-      </Routes>
-      <Routes>
         <Route path="/maps" element={<MapsPage />} />
-      </Routes>
-      <Routes>
         <Route path="/time" element={<TimeManagementpage />} />
-      </Routes>
-      <Routes>
         <Route path="/startshift" element={<StartShiftPage />} />
-      </Routes>
-      <Routes>
         <Route path="/signup" element={<SignupPage />} />
-      </Routes>
-      <Routes>
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div>

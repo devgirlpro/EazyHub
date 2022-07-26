@@ -4,10 +4,10 @@ import { AuthContext } from '../context/auth'
 import axios from 'axios'
 
 export default function Login() {
-
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
-	const [errorMessage, setErrorMessage] = useState(undefined);
+	console.log('login page')
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+	const [errorMessage, setErrorMessage] = useState(undefined)
 
 	const navigate = useNavigate()
 
@@ -16,12 +16,11 @@ export default function Login() {
 	const handleSubmit = e => {
 		e.preventDefault()
 		const requestBody = { username, password }
-		axios.post('http://localhost:5005/api/auth/login', requestBody)
+		axios.post('/api/auth/login', requestBody)
 			.then(response => {
 				const token = response.data.authToken
-				// store the token
 				storeToken(token)
-				verifyStoredToken()
+				verifyStoredToken() //CHECK ROLE HERE?!
 					.then(() => {
 						navigate('/Dashboard')
 					})
@@ -31,7 +30,7 @@ export default function Login() {
 				setErrorMessage(errorDescription)
 			})
 	}
-//
+
 	const handleUsername = e => setUsername(e.target.value)
 	const handlePassword = e => setPassword(e.target.value)
 

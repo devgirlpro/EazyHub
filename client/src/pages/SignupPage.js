@@ -3,20 +3,21 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 export default function Signup() {
-
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState(undefined)
 
     const navigate = useNavigate()
 
-	const handleSubmit = e => {
+	const handleSubmit = e => { 
 		e.preventDefault()
+		console.log("submit")
 		const requestBody = { username, password, }
-		axios.post('http://localhost:5005/api/auth/signup', requestBody)
-			.then(response => {
+		axios.post('/api/auth/signup', requestBody)
+			.then(response => { console.log(response)
 				navigate('/login')
 			})
+			
 			.catch(err => {
                 console.log(err)
 				const errorDescription = err.response.data.message
@@ -29,7 +30,7 @@ export default function Signup() {
 
 	return (
 		
-        <>
+        <div>
 			<h1>Signup</h1>
 			<form onSubmit={handleSubmit}>
 
@@ -46,7 +47,7 @@ export default function Signup() {
 
 			<h3>Already have an account?</h3>
 			<Link to='/login'>Login</Link>
-		</>
+		</div>
 	)
 }
 
