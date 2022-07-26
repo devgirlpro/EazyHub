@@ -14,14 +14,14 @@ const vehicles = [
         //     type: Schema.Types.ObjectId,
         //     ref: 'lastName',
         //   },
-        avatar: "linkToPhoto",
-        brand: "Toyota",
-        model: "Proace",
+        avatar: "https://imgr1.auto-motor-und-sport.de/Tesla-Model-S-Plaid-169FullWidth-6a1b0e1a-1725896.jpg",
+        brand: "Tesla",
+        model: "Model S Plaid",
         color: "white",
-        license: "B YH 1991",
+        license: "B AZ 1992",
         available: true,
         damagePhoto: "linkToPhoto", 
-        damageDescription: "Flat Tire 21.07.2022"
+        damageDescription: ""
         
 
 
