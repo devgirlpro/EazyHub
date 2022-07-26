@@ -11,10 +11,10 @@ export default function Navbar2() {
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
-        <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+        <img src={logo} alt="logo" className="w-48 cursor-pointer" />
       </div>
       <div className="text-white md:flex hidden list-none flex-row justify-around items-center flex-initial">
-        <NavLink to="/" className="w-32 cursor-pointer">
+        <NavLink to="/" className="w-48 cursor-pointer">
           HOME
         </NavLink>
 

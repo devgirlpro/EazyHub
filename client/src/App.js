@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
-import { Link } from "react-router";
+import { Routes, Route } from "react-router-dom";
+// import { Link } from "react-router";
 
 import {
   HomePage,
@@ -15,6 +15,7 @@ import {
   TimeManagmentPage,
   StartShiftPage,
   EmployeeDetailsPage,
+  VehicleDetailsPage,
 } from "./pages/index";
 
 import { Navbar, Navbar2, Sidebar, Footer, Welcome } from "./components/index";
@@ -55,6 +56,11 @@ function App() {
       <Routes>
         <Route path="/vehicles" element={<VehiclesPage />} />
       </Routes>
+
+      <Routes>
+        <Route path="/vehicles/:id" element={<VehicleDetailsPage />} />
+      </Routes>
+
       <Routes>
         <Route path="/maps" element={<MapsPage />} />
       </Routes>

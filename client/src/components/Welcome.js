@@ -3,6 +3,7 @@ import logo from "../images/logo.png";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { AiFillCar } from "react-icons/ai";
 import { BsFillEmojiSunglassesFill } from "react-icons/bs";
+import Loader from "./Loader";
 
 const companyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -21,6 +22,12 @@ const companyCommonStyles =
 export default function Welcome() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    // const { username, password } = formData;
+    e.preventDefault();
+    if (!username || !password) return;
+  };
 
   return (
     <div className="flex w-full justify-center items-center">
@@ -84,7 +91,7 @@ export default function Welcome() {
               onChange={(e) => setUsername(e.target.value)}
               className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
             />
-            //some changes for coomit
+
             <input
               placeholder="Enter Your Password"
               value={password}
@@ -93,6 +100,19 @@ export default function Welcome() {
               onChange={(e) => setPassword(e.target.value)}
               className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
             />
+            <div className="h-[1px] w-full bg-gray-400 my-2" />
+
+            {false ? (
+              <Loader />
+            ) : (
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+              >
+                Send now
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -13,14 +13,14 @@ export default function EmployeesPage() {
     axios
       .get("/api/employees")
       .then((response) => {
-        console.log("client =>", response.data);
+        console.log("AXIOS client =>", response.data);
         setEmployeesData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  console.log("employeesData =>", employeesData);
+  console.log("STATE employeesData =>", employeesData);
 
   const deleteEmployee = (employeId) => {
     const filterEmployees = employeesData.filter((employee) => {
