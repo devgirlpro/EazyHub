@@ -11,6 +11,16 @@ router.get("/employees", (req, res) => {
   });
 });
 
+//create a new User
+router.post("/employees", (req, res) => {
+  const { firstName, lastName, phone, username, password } = req.body;
+  User.create({ firstName, lastName, phone, username, password })
+    .then((user) => {
+      res.status(201).json(user);
+    })
+    .catch((err) => next(err));
+});
+
 //get all the vehhicles
 router.get("/vehicles", (req, res) => {
   Vehicle.find().then((response) => {
