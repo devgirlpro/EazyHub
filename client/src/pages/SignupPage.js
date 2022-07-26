@@ -13,13 +13,13 @@ export default function Signup() {
 		e.preventDefault()
 		console.log("submit")
 		const requestBody = { username, password, }
-		axios.post('/api/auth/signup', requestBody)
+		axios.post('http://localhost:5005/api/auth/signup', requestBody)
 			.then(response => { console.log(response)
 				navigate('/login')
 			})
 			
 			.catch(err => {
-                console.log(err)
+                // console.log(err)
 				const errorDescription = err.response.data.message
 				setErrorMessage(errorDescription)
 			})

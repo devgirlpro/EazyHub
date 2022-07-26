@@ -11,17 +11,19 @@ export default function Login() {
 
 	const navigate = useNavigate()
 
-	const { storeToken, verifyStoredToken } = useContext(AuthContext)
+	const { user, storeToken, verifyStoredToken } = useContext(AuthContext)
 
 	const handleSubmit = e => {
 		e.preventDefault()
 		const requestBody = { username, password }
-		axios.post('/api/auth/login', requestBody)
+		axios.post('http://localhost:5005/api/auth/login', requestBody)
 			.then(response => {
 				const token = response.data.authToken
 				storeToken(token)
 				verifyStoredToken() //CHECK ROLE HERE?!
 					.then(() => {
+// user.role
+
 						navigate('/Dashboard')
 					})
 			})
