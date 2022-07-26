@@ -10,5 +10,6 @@ export { default as MapsPage } from "./MapsPage";
 export { default as TimeManagmentPage } from "./TimeManagmentPage";
 export { default as StartShiftPage } from "./StartShiftPage";
 export { default as EmployeeDetailsPage } from "./EmployeeDetailsPage";
-export { default as Signup } from "./SignupPage";
+export { default as SignupPage } from "./SignupPage";
 export { default as VehicleDetailsPage } from "./VehicleDetailsPage";
+export { default as Login } from "./LoginPage";

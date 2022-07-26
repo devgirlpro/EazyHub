@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 // import { Link } from "react-router";
 
 import {
