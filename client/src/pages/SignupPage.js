@@ -11,7 +11,6 @@ export default function Signup() {
 
 	const handleSubmit = e => { 
 		e.preventDefault()
-		console.log("submit")
 		const requestBody = { username, password, }
 		axios.post('http://localhost:5005/api/auth/signup', requestBody)
 			.then(response => { console.log(response)
@@ -19,7 +18,6 @@ export default function Signup() {
 			})
 			
 			.catch(err => {
-                // console.log(err)
 				const errorDescription = err.response.data.message
 				setErrorMessage(errorDescription)
 			})

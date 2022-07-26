@@ -11,7 +11,7 @@ export default function Login() {
 
 	const navigate = useNavigate()
 
-	const { user, storeToken, verifyStoredToken } = useContext(AuthContext)
+	const { storeToken, verifyStoredToken } = useContext(AuthContext)
 
 	const handleSubmit = e => {
 		e.preventDefault()
