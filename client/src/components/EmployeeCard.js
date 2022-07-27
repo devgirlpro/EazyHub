@@ -1,23 +1,28 @@
 import React from "react";
 export default function EmployeeCard(props) {
-  const { employee } = props;
-
+  // const { employee } = props;
+  console.log("props =>", props);
   return (
     <>
       <div className="employeeCard">
-        <img src={employee.avatar} />
+        <img src={props.employee.avatar} />
+        <h2>Role: {props.employee.role}</h2>
         <h2>
           Name:
-          {employee.personalInfo?.firstName} {employee.personalInfo?.lastName}
+          {props.employee.personalInfo?.firstName}
         </h2>
-        <p>Phone: {employee.personalInfo?.phone}</p>
+        {props.employee.personalInfo?.lastName}
+        <p>Phone: {props.employee.personalInfo?.phone}</p>
         <p>
           Address:
-          {employee.address?.street} {employee.address?.postCode}{" "}
-          {employee.address?.city}
+          {props.employee.address?.street} {props.employee.address?.postCode}{" "}
+          {props.employee.address?.city}
         </p>
-        <p>PersonalNumber: {employee.personalNumber}</p>
-        <p>Availability: {employee.available ? " Available" : "unAvailable"}</p>
+        <p>PersonalNumber: {props.employee.personalNumber}</p>
+        <p>
+          Availability:{" "}
+          {props.employee.available ? " Available" : "unAvailable"}
+        </p>
       </div>
     </>
   );

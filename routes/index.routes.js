@@ -6,15 +6,44 @@ const Vehicle = require("../models/Vehicle");
 //get all the employees
 router.get("/employees", (req, res) => {
   User.find().then((response) => {
-    console.log("SERVER EMPLOYEES RESPOMSE=>", response);
+    // console.log("SERVER EMPLOYEES RESPOMSE=>", response);
     res.json(response);
   });
+});
+
+//create a new User
+router.post("/employees", (req, res) => {
+  // console.log("req.body =>", req.body);
+  const {
+    role,
+    firstName,
+    lastName,
+    phone,
+    street,
+    houseNumber,
+    postCode,
+    city,
+    username,
+    password,
+  } = req.body;
+  User.create({
+    role,
+    personalInfo: { firstName, lastName, phone },
+    address: { street, houseNumber, postCode, city },
+    username,
+    password,
+  })
+    .then((user) => {
+      res.status(201).json(user);
+      // console.log("CREATED USER =>", user);
+    })
+    .catch((err) => next(err));
 });
 
 //get all the vehhicles
 router.get("/vehicles", (req, res) => {
   Vehicle.find().then((response) => {
-    console.log("SERVER VEHICLES RESPONSE =>", response);
+    // console.log("SERVER VEHICLES RESPONSE =>", response);
     res.json(response);
   });
 });

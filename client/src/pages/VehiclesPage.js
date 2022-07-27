@@ -9,7 +9,7 @@ export default function VehiclesPage() {
 
   useEffect(() => {
     axios
-      .get("/api/vehicles")
+      .get("http://localhost:5005/api/vehicles")
       .then((response) => {
         console.log("AXIOS Client Vehicles =>", response.data);
         setVehiclesData(response.data);
@@ -24,7 +24,7 @@ export default function VehiclesPage() {
     });
     setVehiclesData(filterVehicles);
   };
-
+  console.log("VEHICLES DATA =>", vehiclesData);
   return (
     <>
       <h2>Manager Access Only</h2>
