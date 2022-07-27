@@ -4,7 +4,7 @@ import "./sidebar.css";
 
 export default function Sidebar() {
   return (
-    <div className="sideBar">
+    <div className="sideBar text-white">
       <div className="sidebarLink">
         <Link to="/dashboard">Dashboard</Link>
       </div>

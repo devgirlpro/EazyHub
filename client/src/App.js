@@ -20,7 +20,14 @@ import {
   VehicleDetailsPage,
 } from "./pages/index";
 
-import { Navbar, Navbar2, Sidebar, Footer } from "./components/index";
+import {
+  Navbar,
+  Navbar2,
+  Sidebar,
+  Footer,
+  Welcome,
+  QrCode,
+} from "./components/index";
 
 import "./App.css";
 

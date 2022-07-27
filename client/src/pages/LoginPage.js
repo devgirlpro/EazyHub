@@ -11,7 +11,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const { storeToken, verifyStoredToken } = useContext(AuthContext);
+  const { user, storeToken, verifyStoredToken } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,17 +23,21 @@ export default function Login() {
         storeToken(token);
         verifyStoredToken() //CHECK ROLE HERE?!
           .then(() => {
-            // user.role
-
-            navigate("/Dashboard");
+            axios
+              .get(`http://localhost:5005/api/employees/${user._id}`)
+              .then((response) => {
+                const user = response.data;
+                if (user.role === "manager") {
+                  navigate("/Dashboard");
+                } else navigate("/startshift");
+              });
+          })
+          .catch((err) => {
+            const errorDescription = err.response.data.message;
+            setErrorMessage(errorDescription);
           });
-      })
-      .catch((err) => {
-        const errorDescription = err.response.data.message;
-        setErrorMessage(errorDescription);
       });
   };
-
   const handleUsername = (e) => setUsername(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
