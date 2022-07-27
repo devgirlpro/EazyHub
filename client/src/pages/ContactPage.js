@@ -1,9 +1,11 @@
-import "./Stylesheet/contact.css";
 import React from "react";
+import Navbar2 from "../components/Navbar2";
 
 export default function ContactPage() {
-console.log("Hello")
-  return <div className="contactBody">Contact Page</div>;
-
-  
+  return (
+    <>
+      <Navbar2 />
+      <div className="contactBody">Contact Page</div>
+    </>
+  );
 }

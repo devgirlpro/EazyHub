@@ -9,20 +9,23 @@ export default function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
 
   // const employeInfo = (employee) => {};
-
   const getAllEmployees = () => {
+    // console.log("function begin");
     axios
-      .get("/api/employees")
+      .get("http://localhost:5005/api/employees")
       .then((response) => {
-        console.log("AXIOS client =>", response.data);
+        // console.log("AXIOS FUNCTION =>", response.data);
         setEmployeesData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  // console.log("CLIENT STATE =>", employeesData);
 
   useEffect(() => {
+    // console.log("from  useEffect");
+    // get all the projects from the server
     getAllEmployees();
   }, []);
   console.log("STATE employeesData =>", employeesData);
@@ -33,7 +36,7 @@ export default function EmployeesPage() {
     });
     setEmployeesData(filterEmployees);
   };
-  //some changes
+
   return (
     <>
       <h2>Manager Access Only</h2>

@@ -19,11 +19,11 @@ export default function Navbar2() {
         </NavLink>
 
         <NavLink to="/about" className="w-32 cursor-pointer">
-          About
+          ABOUT
         </NavLink>
 
         <NavLink to="/contact" className="w-32 cursor-pointer">
-          Contact Us
+          CONTACT US
         </NavLink>
 
         <NavLink
@@ -57,7 +57,7 @@ export default function Navbar2() {
           >
             <NavLink to="/" className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
-              HOME
+              Home
             </NavLink>
 
             <NavLink to="/about" className="text-xl w-full my-2">
@@ -68,6 +68,10 @@ export default function Navbar2() {
             <NavLink to="/contact" className="text-xl w-full my-2">
               {/* <AiOutlineClose onClick={() => setToggleMenu(false)} /> */}
               Contact Us
+            </NavLink>
+
+            <NavLink to="/login" className="text-xl w-full my-2">
+              Login
             </NavLink>
           </div>
         )}

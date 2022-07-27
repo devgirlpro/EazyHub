@@ -8,7 +8,7 @@ import {
   ContactPage,
   LoginPage,
   ManagerPage,
-  // TimeManagementPage, 
+  // TimeManagementPage,
   DashboardPage,
   EmployeesPage,
   VehiclesPage,
@@ -20,7 +20,7 @@ import {
   VehicleDetailsPage,
 } from "./pages/index";
 
-import { Navbar, Navbar2, Sidebar, Footer, Welcome } from "./components/index";
+import { Navbar, Navbar2, Sidebar, Footer } from "./components/index";
 
 import "./App.css";
 
@@ -28,8 +28,8 @@ function App() {
   return (
     <div className="min-h-screen">
       <div className="gradient-bg-welcome">
-        <Navbar2 />
-        <Welcome />
+        {/* <Navbar2 /> */}
+        {/* <Welcome /> */}
       </div>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -49,9 +49,6 @@ function App() {
       </Routes>
       <Footer />
     </div>
-
-
-
   );
 }
 
