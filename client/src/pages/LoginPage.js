@@ -11,7 +11,7 @@ export default function Login() {
 
 	const navigate = useNavigate()
 
-	const { storeToken, verifyStoredToken } = useContext(AuthContext)
+	const { user, storeToken, verifyStoredToken } = useContext(AuthContext)
 
 	const handleSubmit = e => {
 		e.preventDefault()
@@ -22,38 +22,42 @@ export default function Login() {
 				storeToken(token)
 				verifyStoredToken() //CHECK ROLE HERE?!
 					.then(() => {
-// user.role
+						axios.get(`http://localhost:5005/api/employees/${user._id}`)
+							.then(response => {
+								const user = response.data
+								if (user.role === "manager") {
+									navigate('/Dashboard')
+								} else navigate('/startshift')
 
-						navigate('/Dashboard')
+							})
+					})
+					.catch(err => {
+						const errorDescription = err.response.data.message
+						setErrorMessage(errorDescription)
 					})
 			})
-			.catch(err => {
-				const errorDescription = err.response.data.message
-				setErrorMessage(errorDescription)
-			})
-	}
-
+		}
 	const handleUsername = e => setUsername(e.target.value)
-	const handlePassword = e => setPassword(e.target.value)
+		const handlePassword = e => setPassword(e.target.value)
 
-	return (
-		<div>
-			<h1>Login</h1>
-			<form onSubmit={handleSubmit}>
+		return (
+			<div>
+				<h1>Login</h1>
+				<form onSubmit={handleSubmit}>
 
-				<label htmlFor="username">Username: </label>
-				<input type="text" value={username} onChange={handleUsername} />
+					<label htmlFor="username">Username: </label>
+					<input type="text" value={username} onChange={handleUsername} />
 
-				<label htmlFor="password">Password: </label>
-				<input type="password" value={password} onChange={handlePassword} />
+					<label htmlFor="password">Password: </label>
+					<input type="password" value={password} onChange={handlePassword} />
 
-				<button type="submit">Log In</button>
-			</form>
+					<button type="submit">Log In</button>
+				</form>
 
-			{errorMessage && <h5>{errorMessage}</h5>}
+				{errorMessage && <h5>{errorMessage}</h5>}
 
-			<h3>Don't have an account?</h3>
-			<Link to='/signup'>Signup</Link>
-		</div>
-	)
-}
+				<h3>Don't have an account?</h3>
+				<Link to='/signup'>Signup</Link>
+			</div>
+		)
+		}
