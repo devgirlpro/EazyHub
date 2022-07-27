@@ -4,43 +4,47 @@ const Vehicle = require("./models/Vehicle");
 const mongoose = require("mongoose");
 // mongoose.connect('mongodb://localhost/library')
 mongoose.connect(
-  "mongodb+srv://admin:GingerMonster-22@eazycluster.villekn.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://admin:GingerMonster-22@eazycluster.villekn.mongodb.net/?"
 );
 
 const users = [
   {
-    avatar: "personalfacePic",
-    personalNumber: 202201,
+    avatar: "https://i.ibb.co/K9wcfMK/Terry-Chall.jpg",
+    personalNumber: 202221,
     available: true,
-    role: "manager",
+    role: "driver",
     personalInfo: {
-      firstName: "Manager1",
-      lastName: "manajerpoor",
-      email: "Manager@gmail.com",
-      phone: 156789965,
-      birthdate: 07 - 11 - 1991,
-      nationality: "Irish",
-      idCardExpiryDate: 08 - 08 - 2024,
-      idNumber: "L4G077VRS",
-      drivingLicenseNumber: "C010HPW77",
-      taxId: 20978945322,
-      socialInsuranceNumber: "77660303H070",
-      healthInsurance: "AOK Nordost",
-      entry: 25 - 07 - 2020,
-      bank: "Berliner Sparkasse",
-      iban: "DE82 1040 6578 9977 3546 87",
+      firstName: "Terry",
+      lastName: "Chall",
+      email: "tchall@gmail.com",
+      phone: 17228930122,
+      birthdate: 13 - 11 - 1992,
+      nationality: "American",
+      idCardExpiryDate: 25 - 09 - 2024,
+      idNumber: "X8392KS9",
+      drivingLicenseNumber: "A929HJ011",
+      taxId: 5029529818,
+      socialInsuranceNumber: "12819000G442",
+      healthInsurance: "DAK Gesundheit",
+      entry: 15 - 01 - 2022,
+      bank: "N26",
+      iban: "DE50 5788 2748 2343 4938 12",
     },
     address: {
-      street: "friedricher str",
-      houseNumber: 34,
-      postCode: 16786,
+      street: "Flotowstr. ",
+      houseNumber: 7,
+      postCode: 12034,
       city: "Berlin",
     },
     file: "select some file",
-    loginInfo: {
-      username: "ManagerMaster",
-      password: "123123",
+    username: {
+      username: MAGA,
+      unique: true
     },
+    password: {
+      pw: 123123,
+    },
+
   },
 ];
 

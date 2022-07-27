@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 // import { Link } from "react-router";
 
 import {
@@ -7,7 +8,7 @@ import {
   ContactPage,
   LoginPage,
   ManagerPage,
-  TimeManagementPage,
+  // TimeManagementPage, 
   DashboardPage,
   EmployeesPage,
   VehiclesPage,
@@ -15,6 +16,7 @@ import {
   TimeManagmentPage,
   StartShiftPage,
   EmployeeDetailsPage,
+  SignupPage,
   VehicleDetailsPage,
 } from "./pages/index";
 
@@ -31,47 +33,25 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-      </Routes>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-      <Routes>
         <Route path="/manager" element={<ManagerPage />} />
-      </Routes>
-      <Routes>
         <Route path="/about" element={<AboutPage />} />
-      </Routes>
-      <Routes>
         <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-      <Routes>
         <Route path="/dashboard" element={<DashboardPage />} />
-      </Routes>
-      <Routes>
         <Route path="/employees" element={<EmployeesPage />} />
-      </Routes>
-      <Routes>
         <Route path="/employees/:id" element={<EmployeeDetailsPage />} />
-      </Routes>
-      <Routes>
         <Route path="/vehicles" element={<VehiclesPage />} />
-      </Routes>
-
-      <Routes>
         <Route path="/vehicles/:id" element={<VehicleDetailsPage />} />
-      </Routes>
-
-      <Routes>
         <Route path="/maps" element={<MapsPage />} />
-      </Routes>
-      <Routes>
         <Route path="/time" element={<TimeManagmentPage />} />
-      </Routes>
-      <Routes>
         <Route path="/startshift" element={<StartShiftPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </div>
+
+
+
   );
 }
 

@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import EmployeeCard from "../components/EmployeeCard";
 import Sidebar from "../components/Sidebar";
+import AddNewEmployee from "../components/AddNewEmployee";
 
 export default function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
 
   // const employeInfo = (employee) => {};
 
-  useEffect(() => {
+  const getAllEmployees = () => {
     axios
       .get("/api/employees")
       .then((response) => {
@@ -19,6 +20,10 @@ export default function EmployeesPage() {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  useEffect(() => {
+    getAllEmployees();
   }, []);
   console.log("STATE employeesData =>", employeesData);
 
@@ -34,13 +39,19 @@ export default function EmployeesPage() {
       <h2>Manager Access Only</h2>
       <h2>Employees List</h2>
       <Sidebar />
+      <AddNewEmployee getAllEmployees={getAllEmployees} />
+
       {employeesData.map((employee) => {
         return (
-          <div key={employee?._id}>
-            <EmployeeCard employee={employee} />
-            <button onClick={() => deleteEmployee(employee._id)}>DELETE</button>
-            <Link to={`/employees/${employee._id}`}>More Info</Link>
-          </div>
+          <>
+            <div key={employee?._id}>
+              <EmployeeCard employee={employee} />
+              <button onClick={() => deleteEmployee(employee._id)}>
+                DELETE
+              </button>
+              <Link to={`/employees/${employee._id}`}>More Info</Link>
+            </div>
+          </>
         );
       })}
     </>

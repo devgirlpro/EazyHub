@@ -17,6 +17,7 @@ router.post("/employees", (req, res) => {
   User.create({ firstName, lastName, phone, username, password })
     .then((user) => {
       res.status(201).json(user);
+      console.log("CREATED USER =>", user);
     })
     .catch((err) => next(err));
 });
