@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import { useState } from "react"
 // import { Routes, Route } from "react-router-dom";
 // import { Link } from "react-router";
 
@@ -32,6 +33,7 @@ import {
 import "./App.css";
 
 function App() {
+
   return (
     <div className="min-h-screen">
       <div className="gradient-bg-welcome">
@@ -50,7 +52,7 @@ function App() {
         <Route path="/vehicles/:id" element={<VehicleDetailsPage />} />
         <Route path="/maps" element={<MapsPage />} />
         <Route path="/time" element={<TimeManagmentPage />} />
-        <Route path="/startshift" element={<StartShiftPage />} />
+        <Route path="/startshift" element={<StartShiftPage />}/>
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
@@ -77,3 +79,5 @@ export default App;
 // import TimeManagementpage from "./pages/TimeManagmentPage";
 // import StartShiftPage from "./pages/StartShiftPage";
 // import EmployeeDetails from "./pages/EmployeeDetails";
+
+//JUST COMMIT/MERGING

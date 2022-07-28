@@ -9,7 +9,7 @@ export default function EmployeeDetailsPage() {
 
   useEffect(() => {
     axios
-      .get(`/api/employees/${id}`)
+      .get(`http://localhost:5005/api/employees/${id}`)
       .then((response) => {
         console.log(
           "employee Details from employeeDetailsPage AXIOS => ",

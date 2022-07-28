@@ -14,21 +14,30 @@ router.get("/employees", (req, res) => {
   });
 });
 
-// POST "/api/upload" => Route that will receive an image, send it to Cloudinary via the fileUploader and return the image URL
-router.post("/upload", fileUploader.single("imageUrl"), (req, res, next) => {
-  // console.log("file is: ", req.file)
+// // POST "/api/upload" => Route that will receive an image, send it to Cloudinary via the fileUploader and return the image URL
+// router.post("/upload", fileUploader.single("imageUrl"), (req, res, next) => {
+//   // console.log("file is: ", req.file)
 
-  if (!req.file) {
-    next(new Error("No file uploaded!"));
-    return;
-  }
+//   if (!req.file) {
+//     next(new Error("No file uploaded!"));
+//     return;
+//   }
 
-  // Get the URL of the uploaded file and send it as a response.
-  // 'secure_url' can be any name, just make sure you remember to use the same when accessing it on the frontend
+//   // Get the URL of the uploaded file and send it as a response.
+//   // 'secure_url' can be any name, just make sure you remember to use the same when accessing it on the frontend
 
-  res.json({ secure_url: req.file.path });
+//   res.json({ secure_url: req.file.path });
+// });
+
+router.post("/employees/:id/vehicle", (req, res) => {
+  console.log(req.params, req.body);
+  const id = req.params.id;
+  const vehicle = req.body.vehicle;
+  req.params.id;
+  User.findByIdAndUpdate(id, { vehicle: vehicle }).then((response) => {
+    res.json(response);
+  });
 });
-
 //create a new User
 router.post("/employees", (req, res) => {
   // console.log("req.body =>", req.body);
@@ -74,7 +83,7 @@ router.get("/employees/:id", (req, res) => {
     .then((response) => {
       res.status(200).json(response);
     })
-    .catch((err) => next(err));
+    .catch((err) => console.log(err));
 });
 
 //get specific cehicle info
