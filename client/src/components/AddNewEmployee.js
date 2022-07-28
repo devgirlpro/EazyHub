@@ -12,12 +12,14 @@ export default function AddNewEmployee(props) {
   const [city, setCity] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // send the form data to the backend
     axios
       .post("http://localhost:5005/api/employees", {
+        avatar,
         role,
         firstName,
         lastName,
@@ -32,6 +34,7 @@ export default function AddNewEmployee(props) {
       .then((response) => {
         // console.log("get req body info to create new user =>", response);
         // reset the form
+        setAvatar("");
         setRole("");
         setFirstName("");
         setLastName("");
@@ -48,11 +51,25 @@ export default function AddNewEmployee(props) {
       .catch((err) => console.log(err));
   };
 
+  const handleFileUpload = (event) => {
+    const uploadData = new FormData();
+    uploadData.append("imageUrl", event.target.files[0]);
+
+    axios
+      .post("http://localhost:5005/api/upload", uploadData)
+      .then((response) => {
+        // console.log(response);
+        setAvatar(response.data.secure_url);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
         <h1>Add New Employee</h1>
         <form onSubmit={handleSubmit}>
+          <input type="file" onChange={handleFileUpload} />
           {/* <label for="role">Choose Your Role:</label> */}
           <select
             name="role"

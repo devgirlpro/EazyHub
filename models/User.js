@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
@@ -37,14 +38,14 @@ const userSchema = new Schema(
     file: String,
     username: {
       type: String,
-      unique: true
+      unique: true,
     },
     password: {
       type: String,
     },
     posts: {
       type: Schema.Types.ObjectId,
-      ref: "Post"
+      ref: "Post",
     },
     vehicle: {
       type: Schema.Types.ObjectId,

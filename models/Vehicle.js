@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 const vehicleSchema = new Schema({
@@ -5,14 +6,14 @@ const vehicleSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "lastname",
   },
-  avatar: String, 
+  avatar: String,
   brand: String,
   model: String,
   color: String,
   license: String,
   available: Boolean,
-  damagePhoto: String, 
-  damageDescription: String
+  damagePhoto: String,
+  damageDescription: String,
 });
 
 const Vehicle = model("Vehicle", vehicleSchema);
