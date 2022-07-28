@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
 router.post('/signup', (req, res, next) => {
-    const { username, password } = req.body
+    const { username, password, role, firstName, lastName, phone, street, houseNumber, postCode, city, } = req.body
 
     if (username === '' || password === '') {
 		res.status(400).json({ message: 'Provide username and password' })
@@ -30,7 +30,7 @@ router.post('/signup', (req, res, next) => {
 			const hashedPassword = bcrypt.hashSync(password, salt)
 			// create the new user
 
-			return User.create({ username, password: hashedPassword })
+			return User.create({ username, password: hashedPassword, role })
 				.then(createdUser => {
 					const { username, _id } = createdUser
 					const user = { username, _id }

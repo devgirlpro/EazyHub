@@ -11,6 +11,17 @@ router.get("/employees", (req, res) => {
   });
 });
 
+router.post("/employees/:id/vehicle", (req, res) => {
+  console.log(req.params, req.body)
+const id = req.params.id
+const vehicle = req.body.vehicle
+  req.params.id 
+User.findByIdAndUpdate(id, {vehicle:vehicle})
+.then((response) => {
+  res.json(response);
+});
+
+})
 //create a new User
 router.post("/employees", (req, res) => {
   // console.log("req.body =>", req.body);
@@ -53,7 +64,7 @@ router.get("/employees/:id", (req, res) => {
     .then((response) => {
       res.status(200).json(response);
     })
-    .catch((err) => next(err));
+    .catch((err) => console.log(err));
 });
 
 router.get("/vehicles/:id", (req, res) => {
