@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
 import axios from "axios";
+// import { propTypes } from "react-qr-scanner";
 
 export default function Login() {
   console.log("login page");

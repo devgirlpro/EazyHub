@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from "../images/logo.png";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { AiFillCar } from "react-icons/ai";
 import { BsFillEmojiSunglassesFill } from "react-icons/bs";
 import Loader from "../components/Loader";
 import Navbar2 from "../components/Navbar2";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth";
+import axios from "axios";
 
 const companyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -23,12 +26,39 @@ const companyCommonStyles =
 export default function Welcome() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const navigate = useNavigate();
+
+  const { user, storeToken, verifyStoredToken } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
-    // const { username, password } = formData;
     e.preventDefault();
-    if (!username || !password) return;
+    const requestBody = { username, password };
+    axios
+      .post("http://localhost:5005/api/auth/login", requestBody)
+      .then((response) => {
+        const token = response.data.authToken;
+        storeToken(token);
+        verifyStoredToken() //CHECK ROLE HERE?!
+          .then(() => {
+            axios
+              .get(`http://localhost:5005/api/employees/${user._id}`)
+              .then((response) => {
+                const user = response.data;
+                if (user.role === "manager") {
+                  navigate("/Dashboard");
+                } else navigate("/startshift");
+              });
+          })
+          .catch((err) => {
+            const errorDescription = err.response.data.message;
+            setErrorMessage(errorDescription);
+          });
+      });
   };
+  const handleUsername = (e) => setUsername(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
 
   return (
     <div>
@@ -92,19 +122,22 @@ export default function Welcome() {
 
             <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
               <input
+              htmlFor="username"
                 placeholder="Enter Your Username"
+                type="text"
                 value={username}
+                onChange={handleUsername}
                 name="username"
-                onChange={(e) => setUsername(e.target.value)}
                 className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
               />
 
               <input
+              htmlFor="password"
                 placeholder="Enter Your Password"
-                value={password}
-                name="password"
                 type="password"
-                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                onChange={handlePassword}
+                name="password"
                 className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
               />
               <div className="h-[1px] w-full bg-gray-400 my-2" />
@@ -117,7 +150,7 @@ export default function Welcome() {
                   onClick={handleSubmit}
                   className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
                 >
-                  Send now
+                  Login
                 </button>
               )}
             </div>
