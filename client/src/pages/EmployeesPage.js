@@ -41,9 +41,12 @@ export default function EmployeesPage() {
     <>
       {/* <h2>Manager Access Only</h2>
       <h2>Employees List</h2> */}
-      <div className="flex">
-        <Sidebar />
-        <AddNewEmployee getAllEmployees={getAllEmployees} />
+      <div className="flex w-full justify-center items-center">
+        <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12  px-4">
+          <Sidebar />
+
+          <AddNewEmployee getAllEmployees={getAllEmployees} />
+        </div>
       </div>
 
       {employeesData.map((employee) => {

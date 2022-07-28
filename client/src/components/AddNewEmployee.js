@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 export default function AddNewEmployee(props) {
-  // const [role, setRole] = useState("");
+  const [role, setRole] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
@@ -18,7 +18,7 @@ export default function AddNewEmployee(props) {
     axios
       .post("http://localhost:5005/api/employees", {
         avatar,
-        // role,
+        role,
         firstName,
         lastName,
         phone,
@@ -33,7 +33,7 @@ export default function AddNewEmployee(props) {
         // console.log("get req body info to create new user =>", response);
         // reset the form
         setAvatar("");
-        // setRole("");
+        setRole("");
         setFirstName("");
         setLastName("");
         setPhone("");
@@ -62,14 +62,25 @@ export default function AddNewEmployee(props) {
   return (
     <>
       <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-        <h1>Add New Employee</h1>
+        <h1 className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm whitw-glassmorphism">
+          Add New Employee
+        </h1>
         <form onSubmit={handleSubmit}>
-          <input type="file" onChange={handleFileUpload} />
-          {/* <label for="role">Choose Your Role:</label> */}
+          <input
+            type="file"
+            onChange={handleFileUpload}
+            className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+          />
+          <label
+            for="role"
+            className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+          >
+            Choose Your Role:
+          </label>
           <select
-            // name="role"‚
-            // id="role"
-            // onChange={(e) => setRole(e.target.value)}
+            name="role"
+            id="role"
+            onChange={(e) => setRole(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           >
             <option value="manager">manager</option>
