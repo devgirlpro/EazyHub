@@ -24,7 +24,7 @@ export default function EmployeeCard(props) {
           {props.employee.available ? " Available" : "unAvailable"}
         </p>
         <p>
-          Vehicle:{" "}
+          Vehicle:{props.employee.vehicle}
           {/* {props.vehicle.license ? " Available" : "unAvailable"} */}
         </p>
       </div>

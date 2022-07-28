@@ -35,13 +35,15 @@ export default function StartShift() {
         <div class="flex flex-col items-center pb-5">
           <img
             class="mb-3 w-24 h-24 rounded-full shadow-lg"
-            src="PICTURE"
+            src={userDetails?.avatar}
             alt="Avatar image"
           />
           <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-            {userDetails?.username}
+            {userDetails?.personalInfo?.firstName}
+            <span> </span>
+            {userDetails?.personalInfo?.lastName}
           </h5>
-          <span class="text-sm text-gray-500 dark:text-gray-400">ROLE</span>
+          <span class="text-sm text-gray-500 dark:text-gray-400">{userDetails?.role}</span>
           <div class="flex mt-4 space-x-3 lg:mt-3 pl-2 pr-2">
             <button
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-white font-light text-sm"
@@ -53,9 +55,12 @@ export default function StartShift() {
               Add New Damage
             </button>
           </div>
+        
+          
         </div>
-
-        <div class="flex flex-col items-center pb-5">
+        <span class="flex flex-col items-center px-8 text-center text-l font-small text-gray-900 dark:text-white">Hey {userDetails?.personalInfo?.firstName}, check the tire pressure of the car regularly!</span>
+      
+        <div class="flex flex-col items-center pt-6 pb-5">
           {isShown && <QrCode />}
         </div>
       </div>
