@@ -34,7 +34,7 @@ router.post("/employees", (req, res) => {
   // console.log("req.body =>", req.body);
   const {
     avatar,
-    role,
+    // role,
     firstName,
     lastName,
     phone,
@@ -47,7 +47,7 @@ router.post("/employees", (req, res) => {
   } = req.body;
   User.create({
     avatar,
-    role,
+    // role,
     personalInfo: { firstName, lastName, phone },
     address: { street, houseNumber, postCode, city },
     username,
@@ -57,7 +57,7 @@ router.post("/employees", (req, res) => {
       res.status(201).json(user);
       // console.log("CREATED USER =>", user);
     })
-    .catch((err) => next(err));
+    // .catch((err) => next(err));
 });
 
 //get all the vehhicles
@@ -74,7 +74,7 @@ router.get("/employees/:id", (req, res) => {
     .then((response) => {
       res.status(200).json(response);
     })
-    .catch((err) => next(err));
+    // .catch((err) => next(err));
 });
 
 //get specific cehicle info
