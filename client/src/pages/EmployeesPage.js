@@ -39,10 +39,12 @@ export default function EmployeesPage() {
 
   return (
     <>
-      <h2>Manager Access Only</h2>
-      <h2>Employees List</h2>
-      <Sidebar />
-      <AddNewEmployee getAllEmployees={getAllEmployees} />
+      {/* <h2>Manager Access Only</h2>
+      <h2>Employees List</h2> */}
+      <div className="flex">
+        <Sidebar />
+        <AddNewEmployee getAllEmployees={getAllEmployees} />
+      </div>
 
       {employeesData.map((employee) => {
         return (

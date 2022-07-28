@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 export default function AddNewEmployee(props) {
-  const [role, setRole] = useState("");
+  // const [role, setRole] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
@@ -13,14 +12,13 @@ export default function AddNewEmployee(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // send the form data to the backend
     axios
       .post("http://localhost:5005/api/employees", {
         avatar,
-        role,
+        // role,
         firstName,
         lastName,
         phone,
@@ -35,7 +33,7 @@ export default function AddNewEmployee(props) {
         // console.log("get req body info to create new user =>", response);
         // reset the form
         setAvatar("");
-        setRole("");
+        // setRole("");
         setFirstName("");
         setLastName("");
         setPhone("");
@@ -50,11 +48,9 @@ export default function AddNewEmployee(props) {
       })
       .catch((err) => console.log(err));
   };
-
   const handleFileUpload = (event) => {
     const uploadData = new FormData();
     uploadData.append("imageUrl", event.target.files[0]);
-
     axios
       .post("http://localhost:5005/api/upload", uploadData)
       .then((response) => {
@@ -63,7 +59,6 @@ export default function AddNewEmployee(props) {
       })
       .catch((err) => console.log(err));
   };
-
   return (
     <>
       <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
@@ -72,16 +67,15 @@ export default function AddNewEmployee(props) {
           <input type="file" onChange={handleFileUpload} />
           {/* <label for="role">Choose Your Role:</label> */}
           <select
-            name="role"
-            id="role"
-            onChange={(e) => setRole(e.target.value)}
+            // name="role"‚
+            // id="role"
+            // onChange={(e) => setRole(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           >
             <option value="manager">manager</option>
             <option value="driver">driver</option>
             <option value="officeWorker">officeWorker</option>
           </select>
-
           <input
             placeholder="Enter Your Name"
             type="text"
@@ -89,7 +83,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setFirstName(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter Your Famimly"
             type="text"
@@ -97,7 +90,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setLastName(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter Your phone"
             type="text"
@@ -105,7 +97,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setPhone(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter the Street"
             type="text"
@@ -113,7 +104,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setStreet(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter The HouseNumber"
             type="text"
@@ -121,7 +111,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setHouseNumber(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter The Postode"
             type="text"
@@ -129,7 +118,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setPostCode(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter The City"
             type="text"
@@ -137,7 +125,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setCity(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter The Username"
             type="text"
@@ -145,7 +132,6 @@ export default function AddNewEmployee(props) {
             onChange={(e) => setUsername(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-
           <input
             placeholder="Enter The password"
             type="password"
@@ -156,7 +142,7 @@ export default function AddNewEmployee(props) {
           <div className="h-[1px] w-full bg-gray-400 my-2" />
           <button
             type="submit"
-            className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+            className="text-white w-full mt-2 border-[1px] p-2 border-[#3D4F7C] hover:bg-[#3D4F7C] rounded-full cursor-pointer"
           >
             Add New Employee
           </button>

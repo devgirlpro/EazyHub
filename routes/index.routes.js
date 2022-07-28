@@ -52,12 +52,11 @@ router.post("/employees", (req, res) => {
     address: { street, houseNumber, postCode, city },
     username,
     password,
-  })
-    .then((user) => {
-      res.status(201).json(user);
-      // console.log("CREATED USER =>", user);
-    })
-    .catch((err) => next(err));
+  }).then((user) => {
+    res.status(201).json(user);
+    // console.log("CREATED USER =>", user);
+  });
+  // .catch((err) => next(err));
 });
 
 //get all the vehhicles
