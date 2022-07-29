@@ -10,7 +10,7 @@ export default function EmployeesPage() {
   const getAllEmployees = () => {
     // console.log("function begin");
     axios
-      .get("http://localhost:5005/api/employees")
+      .get("/api/employees")
       .then((response) => {
         // console.log("AXIOS FUNCTION =>", response.data);
         setEmployeesData(response.data);
