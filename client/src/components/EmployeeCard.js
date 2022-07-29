@@ -4,21 +4,29 @@ export default function EmployeeCard(props) {
   console.log("props =>", props);
   return (
     <>
-      {/* <section class="bg-gray-900 h-screen flex justify-center items-center gap-x-16 text-white"> */}
-        <div class="w-[300px] h-[300px] bg-transparent cursor-pointer group perspective">
-          <div class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
-            <div class="absolute backface-hidden border-2 w-full h-full">
-              <img src={props.employee.avatar} class="w-full h-full" />
+      {/* class="h-screen flex justify-center items-center gap-x-16 text-white" */}
+      <section>
+        {/* class="w-[300px] h-[320px] bg-transparent cursor-pointer group perspective" */}
+        <div>
+          {/* class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000" */}
+          <div>
+            {/* class="absolute backface-hidden border-2 w-full h-full" */}
+            <div>
+              {/* class="w-full h-full" */}
+              <img src={props.employee.avatar} />
             </div>
-
-            <div class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden">
-              <div class="text-center flex flex-col items-center justify-center h-full text-gray-800 px-2 pb-24">
-                <h2 className="text-3xl font-semibold">
+            {/* class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden" */}
+            <div>
+              {/* class="text-center flex flex-col items-center justify-center h-full text-gray-800 px-2 pb-24" */}
+              <div>
+                {/* className="text-3xl font-semibold" */}
+                <h2>
                   Name:
                   {props.employee.personalInfo?.firstName}
                 </h2>
                 {props.employee.personalInfo?.lastName}
-                <p class="my-2">Phone: {props.employee.personalInfo?.phone}</p>
+                {/* class="my-2" */}
+                <p>Phone: {props.employee.personalInfo?.phone}</p>
                 <p>
                   Address:
                   {props.employee.address?.street}{" "}
@@ -30,19 +38,16 @@ export default function EmployeeCard(props) {
                   Availability:{" "}
                   {props.employee.available ? " Available" : "unAvailable"}
                 </p>
-                <p>
-                  Vechicle: {props.employee.vehicle}
-                </p>
+                <p>Vehicle: {props.employee.vehicle}</p>
               </div>
             </div>
           </div>
         </div>
-      {/* </section> */}
+      </section>
     </>
   );
 }
-
-// {
+{
   /* <div className="employeeCard">
         <img src={props.employee.avatar} />
         <h2>Role: {props.employee.role}</h2>
@@ -62,21 +67,8 @@ export default function EmployeeCard(props) {
           Availability:{" "}
           {props.employee.available ? " Available" : "unAvailable"}
         </p>
-       
-        ////////////////////////////////EXCEPTED
-
-        <p>
-          Vehicle:{props.employee.vehicle}
-          {/* {props.vehicle.license ? " Available" : "unAvailable"} */
-  //       </p>
-  //     </div>
-  //   </>
-  // );
-  ////////////////////////////////EXCEPTED
-
-      // </div> */
-// }
-
+      </div> */
+}
 // return (
 //     <div>
 //       <h2>Movie List</h2>
