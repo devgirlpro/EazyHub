@@ -27,8 +27,6 @@ export default function VehiclesPage() {
   console.log("VEHICLES DATA =>", vehiclesData);
   return (
     <>
-      <h2>Manager Access Only</h2>
-      <h2>Vehicles List</h2>
       <Sidebar />
       {vehiclesData.map((vehicle) => {
         return (

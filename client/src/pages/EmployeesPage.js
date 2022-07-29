@@ -39,12 +39,18 @@ export default function EmployeesPage() {
 
   return (
     <>
-      <h2>Manager Access Only</h2>
-      <h2>Employees List</h2>
-      <Sidebar />
-      <AddNewEmployee getAllEmployees={getAllEmployees} />
+      <div>
+        <div class="flex flex-row ...">
+          <div>
+            <Sidebar />
+          </div>
 
-      {employeesData.map((employee) => {
+          <div class="px-4 py-1">
+            <AddNewEmployee getAllEmployees={getAllEmployees} />
+          </div>
+
+        </div>
+        {employeesData.map((employee) => {
         return (
           <>
             <div key={employee?._id}>
@@ -57,6 +63,12 @@ export default function EmployeesPage() {
           </>
         );
       })}
+      </div>
+      {/* <div className="flex w-full justify-center items-center">
+        <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12  px-4"></div> */}
+      {/* </div> */}
+
+      
     </>
   );
 }
