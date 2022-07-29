@@ -1,4 +1,3 @@
-
 import React, { useState, useContext, useEffect } from "react";
 import { QrCode } from "../components/index";
 import { AuthContext } from "../context/auth";
