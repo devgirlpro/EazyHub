@@ -7,7 +7,7 @@ export default function EmployeeDetailsPage() {
   const [employee, setEmployee] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/employees/${id}`)
+      .get(`/api/employees/${id}`)
       .then((response) => {
         console.log(
           "employee Details from employeeDetailsPage AXIOS => ",

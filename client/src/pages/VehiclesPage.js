@@ -7,7 +7,7 @@ export default function VehiclesPage() {
   const [vehiclesData, setVehiclesData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5005/api/vehicles")
+      .get("/api/vehicles")
       .then((response) => {
         console.log("AXIOS Client Vehicles =>", response.data);
         setVehiclesData(response.data);

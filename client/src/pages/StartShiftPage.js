@@ -13,7 +13,7 @@ export default function StartShift() {
     // get all the projects from the server
     
     axios
-    .get(`http://localhost:5005/api/employees/${user?._id}`)
+    .get(`/api/employees/${user?._id}`)
     .then((response) => {
       setUserDetails(response.data);
     });

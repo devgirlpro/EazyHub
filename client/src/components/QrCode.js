@@ -12,7 +12,7 @@ export default function QrCode() {
 console.log(data)
         if (data !== null) {
         axios
-      .post(`http://localhost:5005/api/employees/${user._id}/vehicle`, { vehicle:data})
+      .post(`/api/employees/${user._id}/vehicle`, { vehicle:data})
     }
   }
 
