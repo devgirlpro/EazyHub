@@ -27,18 +27,27 @@ export default function VehiclesPage() {
   console.log("VEHICLES DATA =>", vehiclesData);
   return (
     <>
-      <h2>Manager Access Only</h2>
-      <h2>Vehicles List</h2>
-      <Sidebar />
-      {vehiclesData.map((vehicle) => {
-        return (
-          <div key={vehicle?._id}>
-            <VehicleCard vehicle={vehicle} />
-            <button onClick={() => deleteVehicle(vehicle._id)}>Delete</button>
-            <Link to={`/vehicles/${vehicle._id}`}>Damage Info</Link>
-          </div>
-        );
-      })}
+      {/* <h2>Manager Access Only</h2>
+      <h2>Vehicles List</h2> */}
+      <div className="flex flex-wrap justify-center">
+        <div className="relative md:flex-row ">
+          <Sidebar />
+          {vehiclesData.map((vehicle) => {
+            return (
+              <div
+                key={vehicle?._id}
+                className="flex flex-col blue-glassmorphism text-white rounded-lg shadow-md  w-full  m-6 overflow-hidden "
+              >
+                <VehicleCard vehicle={vehicle} className="h-20 m-6" />
+                <button onClick={() => deleteVehicle(vehicle._id)}>
+                  Delete
+                </button>
+                <Link to={`/vehicles/${vehicle._id}`}>Damage Info</Link>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
