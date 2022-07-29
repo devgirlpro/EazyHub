@@ -16,7 +16,7 @@ export default function AddNewEmployee(props) {
     e.preventDefault();
     // send the form data to the backend
     axios
-      .post("/api/employees", {
+      .post("http://localhost:5005/api/employees", {
         avatar,
         role,
         firstName,
@@ -52,7 +52,7 @@ export default function AddNewEmployee(props) {
     const uploadData = new FormData();
     uploadData.append("imageUrl", event.target.files[0]);
     axios
-      .post("/api/upload", uploadData)
+      .post("http://localhost:5005/api/upload", uploadData)
       .then((response) => {
         // console.log(response);
         setAvatar(response.data.secure_url);

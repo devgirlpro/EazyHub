@@ -7,7 +7,7 @@ export default function VehicleDetailsPage() {
   const [vehicle, setVehicle] = useState(null);
   useEffect(() => {
     axios
-      .get(`/api/vehicles/${id}`)
+      .get(`http://localhost:5005/api/vehicles/${id}`)
       .then((response) => {
         console.log(
           "VEHICLE DETAILS FROM VEHICLEDETAILSPAGE =>",

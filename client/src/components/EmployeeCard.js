@@ -5,20 +5,20 @@ export default function EmployeeCard(props) {
   return (
     <>
       {/* class="h-screen flex justify-center items-center gap-x-16 text-white" */}
-      <section>
+      <section class="w-[300px] h-[320px] bg-transparent cursor-pointer group perspective">
         {/* class="w-[300px] h-[320px] bg-transparent cursor-pointer group perspective" */}
-        <div>
+        <div >
           {/* class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000" */}
-          <div>
+          <div >
             {/* class="absolute backface-hidden border-2 w-full h-full" */}
-            <div>
+            <div >
               {/* class="w-full h-full" */}
               <img src={props.employee.avatar} />
-            </div>
+            
             {/* class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden" */}
             <div>
               {/* class="text-center flex flex-col items-center justify-center h-full text-gray-800 px-2 pb-24" */}
-              <div>
+              <div >
                 {/* className="text-3xl font-semibold" */}
                 <h2>
                   Name:
@@ -38,7 +38,8 @@ export default function EmployeeCard(props) {
                   Availability:{" "}
                   {props.employee.available ? " Available" : "unAvailable"}
                 </p>
-                <p>Vehicle: {props.employee.vehicle}</p>
+                <p>Vehicle: {props.employee?.vehicle}</p>
+              </div>
               </div>
             </div>
           </div>

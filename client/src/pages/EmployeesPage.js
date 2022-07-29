@@ -10,7 +10,7 @@ export default function EmployeesPage() {
   const getAllEmployees = () => {
     // console.log("function begin");
     axios
-      .get("/api/employees")
+      .get("http://localhost:5005/api/employees")
       .then((response) => {
         // console.log("AXIOS FUNCTION =>", response.data);
         setEmployeesData(response.data);
@@ -44,17 +44,12 @@ export default function EmployeesPage() {
         <div>
           <Sidebar />
         </div>
-        <div className="absolute  top-0 right-0 w-90">
+        <div className="absolute  top-0 right-0 w-900">
           <AddNewEmployee getAllEmployees={getAllEmployees} />
         </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <div>
+
+
+        <div class="grid grid-rows-5 grid-flow-col gap-4">
         {employeesData.map((employee) => {
           return (
             <>
@@ -62,12 +57,12 @@ export default function EmployeesPage() {
               <div className="flex flex-wrap justify-center">
                 <div
                   key={employee?._id}
-                  className="flex flex-col blue-glassmorphism text-white rounded-lg shadow-md  w-full  m-6 overflow-hidden "
+                  className="flex flex-col blue-glassmorphism text-white rounded-lg shadow-md w-full m-6 overflow-hidden "
                 >
-                  <EmployeeCard employee={employee} className="h-20 m-6" />
+                  <EmployeeCard employee={employee}  />
                   <button
                     onClick={() => deleteEmployee(employee._id)}
-                    className="text-center px-2 pb-5"
+                    className="text-center px-2"
                   >
                     DELETE
                   </button>
@@ -84,6 +79,14 @@ export default function EmployeesPage() {
           );
         })}
       </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      
     </>
   );
 }
