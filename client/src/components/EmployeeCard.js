@@ -5,7 +5,7 @@ export default function EmployeeCard(props) {
   return (
     <>
       {/* <section class="bg-gray-900 h-screen flex justify-center items-center gap-x-16 text-white"> */}
-        <div class="w-[400px] h-[420px] bg-transparent cursor-pointer group perspective">
+        <div class="w-[300px] h-[300px] bg-transparent cursor-pointer group perspective">
           <div class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
             <div class="absolute backface-hidden border-2 w-full h-full">
               <img src={props.employee.avatar} class="w-full h-full" />
@@ -29,6 +29,9 @@ export default function EmployeeCard(props) {
                 <p>
                   Availability:{" "}
                   {props.employee.available ? " Available" : "unAvailable"}
+                </p>
+                <p>
+                  Vechicle: {props.employee.vehicle}
                 </p>
               </div>
             </div>

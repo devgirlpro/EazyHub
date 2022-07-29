@@ -39,13 +39,10 @@ export default function EmployeesPage() {
 
   return (
     <>
-      <div>
-        <div class="flex flex-row ...">
+      <div class="grid grid-cols-7 gap-7" >
+        <div >
           <div>
             <Sidebar />
-          </div>
-
-          <div class="px-4 py-1">
             <AddNewEmployee getAllEmployees={getAllEmployees} />
           </div>
 
@@ -53,11 +50,16 @@ export default function EmployeesPage() {
         {employeesData.map((employee) => {
         return (
           <>
-            <div key={employee?._id}>
+            <div  key={employee?._id}>
+
+
+              
               <EmployeeCard employee={employee} />
+
               <button onClick={() => deleteEmployee(employee._id)}>
                 DELETE
               </button>
+
               <Link to={`/employees/${employee._id}`}>More Info</Link>
             </div>
           </>
