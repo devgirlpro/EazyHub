@@ -62,19 +62,30 @@ export default function AddNewEmployee(props) {
   return (
     <>
       <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-        <h1>Add New Employee</h1>
+        <h1 className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm whitw-glassmorphism">
+          Add New Employee
+        </h1>
         <form onSubmit={handleSubmit}>
-          <input type="file" onChange={handleFileUpload} />
-          <label for="role">Choose Your Role:</label>
+          <input
+            type="file"
+            onChange={handleFileUpload}
+            className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+          />
+          <label
+            for="role"
+            className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+          >
+            Choose Your Role:
+          </label>
           <select
             name="role"
             id="role"
             onChange={(e) => setRole(e.target.value)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           >
-            <option value="manager">Manager</option>
-            <option value="driver">Driver</option>
-            <option value="officeWorker">OfficeWorker</option>
+            <option value="manager">manager</option>
+            <option value="driver">driver</option>
+            <option value="officeWorker">officeWorker</option>
           </select>
           <input
             placeholder="Enter Your Name"
@@ -84,7 +95,7 @@ export default function AddNewEmployee(props) {
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
           <input
-            placeholder="Enter Your Family Name"
+            placeholder="Enter Your Famimly"
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
@@ -105,7 +116,7 @@ export default function AddNewEmployee(props) {
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
           <input
-            placeholder="Enter The House Number"
+            placeholder="Enter The HouseNumber"
             type="text"
             value={houseNumber}
             onChange={(e) => setHouseNumber(e.target.value)}
