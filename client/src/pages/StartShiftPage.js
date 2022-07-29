@@ -51,8 +51,8 @@ export default function StartShift() {
             >
               Scan Your Vehicle
             </button>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-white font-light text-sm">
-              Add New Damage
+            <button onclick="location.href='http://localhost:3000'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-white font-light text-sm">
+              Start Shift
             </button>
           </div>
         

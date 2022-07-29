@@ -46,7 +46,7 @@ export default function Welcome() {
               .get(`http://localhost:5005/api/employees/${user._id}`)
               .then((response) => {
                 const user = response.data;
-                if (user.role === "manager") {
+                if (user.role === "Manager") {
                   navigate("/Dashboard");
                 } else navigate("/startshift");
               });
