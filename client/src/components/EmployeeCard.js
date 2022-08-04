@@ -5,13 +5,13 @@ export default function EmployeeCard(props) {
   return (
     <>
       {/* class="h-screen flex justify-center items-center gap-x-16 text-white" */}
-      <section class="w-[300px] h-[320px] bg-transparent cursor-pointer group perspective">
+      <section class="h-[700px]">
         {/* class="w-[300px] h-[320px] bg-transparent cursor-pointer group perspective" */}
-        <div >
+        <div>
           {/* class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000" */}
           <div >
             {/* class="absolute backface-hidden border-2 w-full h-full" */}
-            <div >
+            <div>
               {/* class="w-full h-full" */}
               <img src={props.employee.avatar} />
             
