@@ -2,14 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-
 export default function EmployeeDetailsPage() {
   const { id } = useParams();
   const [employee, setEmployee] = useState(null);
-
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/employees/${id}`)
+      .get(`/api/employees/${id}`)
       .then((response) => {
         console.log(
           "employee Details from employeeDetailsPage AXIOS => ",
@@ -19,9 +17,7 @@ export default function EmployeeDetailsPage() {
       })
       .catch((err) => console.log(err));
   }, []);
-
   console.log("employeeDetailsState =>", employee);
-
   return (
     <>
       {employee === null ? (
@@ -47,7 +43,6 @@ export default function EmployeeDetailsPage() {
             <p>healthInsurance: {employee.personalInfo.healthInsurance}</p>
             <p>Entry: {employee.personalInfo.entry}</p>
           </div>
-
           <div className="flex flex-col blue-glassmorphism text-white rounded-lg shadow-md    m-6 overflow-hidden ">
             <h1 className="text-center text-3xl">Address</h1>
             <h3>Address : {employee.address.street}</h3>
@@ -56,7 +51,7 @@ export default function EmployeeDetailsPage() {
             <p>Iban: {employee.address.city}</p>
           </div>
           {/* <Link to={`/`}>
-            <button>Edit this Project 📝</button>
+            <button>Edit this Project :memo:</button>
           </Link> */}
         </>
       )}

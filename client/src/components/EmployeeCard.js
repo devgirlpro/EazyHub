@@ -38,6 +38,7 @@ export default function EmployeeCard(props) {
                   Availability:{" "}
                   {props.employee.available ? " Available" : "unAvailable"}
                 </p>
+                <p>Vehicle: {props.employee.vehicle}</p>
               </div>
             </div>
           </div>
@@ -46,7 +47,6 @@ export default function EmployeeCard(props) {
     </>
   );
 }
-
 {
   /* <div className="employeeCard">
         <img src={props.employee.avatar} />
@@ -69,7 +69,6 @@ export default function EmployeeCard(props) {
         </p>
       </div> */
 }
-
 // return (
 //     <div>
 //       <h2>Movie List</h2>

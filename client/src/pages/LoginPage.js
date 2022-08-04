@@ -18,14 +18,14 @@ export default function Login() {
     e.preventDefault();
     const requestBody = { username, password };
     axios
-      .post("http://localhost:5005/api/auth/login", requestBody)
+      .post("/api/auth/login", requestBody)
       .then((response) => {
         const token = response.data.authToken;
         storeToken(token);
         verifyStoredToken() //CHECK ROLE HERE?!
           .then(() => {
             axios
-              .get(`http://localhost:5005/api/employees/${user._id}`)
+              .get(`/api/employees/${user._id}`)
               .then((response) => {
                 const user = response.data;
                 if (user.role === "manager") {

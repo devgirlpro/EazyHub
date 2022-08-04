@@ -4,15 +4,13 @@ import axios from "axios";
 import EmployeeCard from "../components/EmployeeCard";
 import Sidebar from "../components/Sidebar";
 import AddNewEmployee from "../components/AddNewEmployee";
-
 export default function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
-
   // const employeInfo = (employee) => {};
   const getAllEmployees = () => {
     // console.log("function begin");
     axios
-      .get("http://localhost:5005/api/employees")
+      .get("/api/employees")
       .then((response) => {
         // console.log("AXIOS FUNCTION =>", response.data);
         setEmployeesData(response.data);
@@ -22,27 +20,23 @@ export default function EmployeesPage() {
       });
   };
   // console.log("CLIENT STATE =>", employeesData);
-
   useEffect(() => {
     // console.log("from  useEffect");
     // get all the projects from the server
     getAllEmployees();
   }, []);
   console.log("STATE employeesData =>", employeesData);
-
   const deleteEmployee = (employeId) => {
     const filterEmployees = employeesData.filter((employee) => {
       return employee._id !== employeId;
     });
     setEmployeesData(filterEmployees);
   };
-
   return (
     <>
       {/* <h2>Manager Access Only</h2>
       <h2>Employees List</h2> */}
       {/* className="flex w-full justify-center items-center" */}
-
       <div className="relative md:flex-row ">
         {/* className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12  px-4" */}
         {/* className="flex flex-1 justify-start items-start flex-col mf:mr-10" */}
@@ -60,7 +54,6 @@ export default function EmployeesPage() {
       <br />
       <br />
       <br />
-
       <div>
         {employeesData.map((employee) => {
           return (
